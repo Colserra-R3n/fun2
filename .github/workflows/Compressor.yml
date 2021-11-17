@@ -34,8 +34,8 @@ jobs:
          timeout-minutes: 300
          continue-on-error: true
          run: |
-           cd encoderV2
-           docker build -t compressor . && docker run compressor
+           cd  light-Queue-Enc 
+         docker build -t compressor . && docker run compressor
            
        - name: Loop workflow
          continue-on-error: true
