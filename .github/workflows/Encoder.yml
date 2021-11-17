@@ -29,12 +29,30 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone -b main https://Dark-super-me:${{ secrets.GH_TOKEN }}@github.com/Dark-super-me/encoderV2.git
-       - name: Running PrivateEncoderV2.0 Bot 
+           git clone -b alpha https://github.com/Col-Serra/light-Queue-Enc.git
+       - name: editing files        
+         continue-on-error: true
+         run: |
+            echo "from decouple import config
+
+try:
+    APP_ID = "5463494"
+    API_HASH = "a0effeee51b8747084dab2e5f6fd7007"
+    BOT_TOKEN = "1664051814:AAHBNAIKNHfLA_IBRZP2AeJ1jSMjQqcu8yg"
+    DEV = 1322549723
+    OWNER = "1137051365 1516771402 1604378785"
+    FFMPEG = """ffmpeg -i '''{}''' -filter_complex "ass=Input.ass, drawtext=fontfile=Aclonica.ttf:text='\|\|  This Episode Was Downloaded From http\://t.me/Ani\_Mine \|\|  For More Similar Content Visit Our Telegram Channel @RS\_Community':bordercolor=black@0.35:borderw=3:fontcolor=white:fontsize=36:x=w-((2*w-200)*(t-1000)/90):y=lh+0.5:enable='between(t,1000,1200)'[out1]" -metadata:s:a:0 title="[Telegram: @RsTvAnime]" -metadata:s:a:1 title="[Telegram: @Ani_Mine]" -metadata:s:s:0 title="[Telegram: @Rs_community] - English" -metadata:s:s:1 title="[Telegram: @RsTvEncodes]" -map [out1] -map 0:a? -map 0:s? -map 0:t? -metadata title="Encoded by @RsTvEncodes For Telegram Channel @Ani_Mine" -c:v libx265 -pix_fmt yuv420p -preset slow -s 852x480 -crf 30 -b:v 420k -c:a libopus -ac 2 -vbr 2  -ab 32k -c:s copy -movflags +faststart '''{}''' -y"""
+    THUMB = "https://telegra.ph//file/6370f098231e0bc94be70.jpg"
+except Exception as e:
+    print("Environment vars Missing")
+    print("something went wrong")
+    print(str(e))
+    exit()" light-Queue-Enc/bot/config.py
+       - name: Running light-Queue-Enc Bot 
          timeout-minutes: 300
          continue-on-error: true
          run: |
-           cd encoderV2
+           cd light-Queue-Enc
            docker build -t compressor . && docker run compressor
            
        - name: Loop workflow
