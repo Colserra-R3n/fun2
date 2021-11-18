@@ -1,4 +1,4 @@
-name: PrivateEncoderV2.0 Workflows 
+name: light-Queue-Enc Workflows 
 
 on:
     push:
