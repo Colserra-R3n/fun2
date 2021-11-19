@@ -7,13 +7,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-         env:
-           APP_ID: ${{ secrets.APP_ID }}
-           API_HASH: ${{ secrets.API_HASH }}
-           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-           OWNER: ${{ secrets.OWNER }}
-           FFMPEG: ${{ secrets.FFMPEG }}
-           THUMB: ${{ secrets.THUMB }}  
+    env:
+      APP_ID: ${{ secrets.APP_ID }}
+      API_HASH: ${{ secrets.API_HASH }}
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      OWNER: ${{ secrets.OWNER }}
+      FFMPEG: ${{ secrets.FFMPEG }}
+      THUMB: ${{ secrets.THUMB }}  
 
 
     steps:
