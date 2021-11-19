@@ -7,6 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+         env:
+           APP_ID: ${{ secrets.APP_ID }}
+           API_HASH: ${{ secrets.API_HASH }}
+           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+           OWNER: ${{ secrets.OWNER }}
+           FFMPEG: ${{ secrets.FFMPEG }}
+           THUMB: ${{ secrets.THUMB }}  
+
 
     steps:
        - name: Checkout
@@ -36,14 +44,7 @@ jobs:
          run: |
            cd  light-Queue-Enc 
            docker build -t compressor . && docker run compressor
-         env:
-           APP_ID: ${{ secrets.APP_ID }}
-           API_HASH: ${{ secrets.API_HASH }}
-           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-           OWNER: ${{ secrets.OWNER }}
-           FFMPEG: ${{ secrets.FFMPEG }}
-           THUMB: ${{ secrets.THUMB }}  
-
+         
        - name: Loop workflow
          continue-on-error: true
          run: |
