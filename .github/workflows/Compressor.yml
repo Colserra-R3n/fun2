@@ -29,20 +29,20 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone -b alpha https://Colserra-R3n:${{ secrets.GH_TOKEN }}@github.com/Colserra-R3n/light-Queue-Enc.git
-       - name: Running PrivateEncoderV2.0 Bot 
+           git clone https://Colserra-R3n:${{ secrets.GH_TOKEN }}@github.com/Colserra-R3n/rene.git
+       - name: Running rene Bot 
          timeout-minutes: 300
          continue-on-error: true
          run: |
-           cd  light-Queue-Enc 
+           cd  rene
            docker build -t compressor . && docker run compressor
            
        - name: Loop workflow
          continue-on-error: true
          run: |
-           git clone -b anime https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} loop
+           git clone -b rene https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} loop
            cd loop || exit 1
            echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
            git add looper.txt
            git commit -m "Workflow : Loop at $(date -u +%D-%T%P)"
-           git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:anime
+           git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:rene
