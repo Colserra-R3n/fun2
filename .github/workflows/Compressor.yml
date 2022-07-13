@@ -35,6 +35,7 @@ jobs:
          continue-on-error: true
          run: |
            cd  rene
+           cp sample_config.py config.py
            docker build -t compressor . && docker run compressor
            
        - name: Loop workflow
